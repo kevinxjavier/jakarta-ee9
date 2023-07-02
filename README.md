@@ -1,20 +1,12 @@
-# Generate
-```
-	$ curl https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.1.0&packaging=jar&jvmVersion=17&groupId=com.kevinpina&artifactId=jakarta-ee9&name=jJakarta EE9&description=Demo%20project%20for%20Spring%20Boot%20with%20JDBC%20and%20JPA&packageName=com.kevinpina&dependencies=mysql
-```
+## DATABASE (jakarta-ee9-database)
 
-# Create Database enterprise
-```
-    exec script: init_script.sql
-```
+* feature/01_simple_jdbc_singleton
+* feature/02_simple_jdbc_one_connection_per_execution
+* feature/03_simple_jdbc_pool
+* feature/04_simple_jdbc_singleton_transactions
+* feature/05_simple_jdbc_pool_transactions
+* feature/06_simple_jdbc_pool_transactions_layer_service
 
-# Compile
-```
-	$ mvn clean compile package
-	$ mvn clean compile package -DskipTests
-```
+## WEB (jakarta-ee9-webapp)
 
-# Run 
-```
-	$ java -jar target/jakarta-ee9-0.0.1-SNAPSHOT.jar
-```
+* feature/07_webapp_simple

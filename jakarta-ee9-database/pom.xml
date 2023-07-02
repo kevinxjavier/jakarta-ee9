@@ -9,7 +9,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kevinpina</groupId>
-	<artifactId>database</artifactId>
+	<artifactId>jakarta-ee9-database</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Jakarta EE9</name>
 	<description>Demo project for Jakarta EE9, JDBC, JPA, EJB, JSP, JSF, SERVLET</description>
