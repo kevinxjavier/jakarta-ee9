@@ -18,6 +18,9 @@
 			allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1"
 		//with
 			allow=".*"
+			
+	// To watch logs TOMCAT
+	$ tail -100f $TOMCAT_HOME/logs/catalina.out
 ```
 
 # START/STOP TOMCAT
@@ -48,8 +51,28 @@
 ```
     $ curl http://localhost:8080/manager
     
-    $ curl http://localhost:8080/webapp/
-    $ curl http://localhost:8080/webapp/info
+    $ curl http://localhost:8080/jakarta-ee9-webapp/
+    $ curl http://localhost:8080/jakarta-ee9-webapp/info
+    
+    // Forms
+    $ curl http://localhost:8080/jakarta-ee9-webapp/index.jsp
+    
+    // Headers
+    $ curl http://localhost:8080/jakarta-ee9-webapp/request-header
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp/products.xls
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp/products.html
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp/products.json
+    $ curl --location 'http://kevin.cx:9000/jakarta-ee9-webapp/products.json' \
+		--header 'Content-Type: application/json' \
+		--data '{
+		    "id": 3,
+		    "name": "Ryzen 7 5505",
+		    "price": 450.0,
+		    "type": "CPU"
+		}'
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp/current-time
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp/redirect "redirection"
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp/dispatcher
 ```
 
 # DEBUG REMOTELY TOMCAT

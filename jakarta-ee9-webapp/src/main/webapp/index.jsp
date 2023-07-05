@@ -105,8 +105,18 @@
 				<div><input type="submit" value="Submit" /></div>
 			</div>
 		</form>
-        
-        <hr/>
-        <h6><a href="/jakarta-ee9-webapp/info?version=v0.1.0-alpha&name=webapp-SNAPSHOT">see info.</a></h6>
+		
+		<hr/>
+		<h6>
+			<a href="/jakarta-ee9-webapp/info?version=v0.1.0-alpha&name=webapp-SNAPSHOT">see info.</a><br/>
+			<h5>Headers</h5>
+			<a href="/jakarta-ee9-webapp/request-header">Request HTTP Headers</a><br/>
+			<a href="/jakarta-ee9-webapp/products.xls">Products (XLS)</a><br/>
+			<a href="/jakarta-ee9-webapp/products.html">Products (HTML)</a><br/>
+			<a href="/jakarta-ee9-webapp/products.json">Products (JSON)</a><br/>
+			<a href="/jakarta-ee9-webapp/current-time">Current Time</a><br/>
+			<a href="/jakarta-ee9-webapp/redirection">Redirect</a><br/>
+			<a href="/jakarta-ee9-webapp/dispatcher">Dispatcher</a><br/>
+		</h6>
     </body>
 </html>
