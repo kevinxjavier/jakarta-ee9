@@ -73,6 +73,7 @@
 	$ curl http://kevin.cx:9000/jakarta-ee9-webapp/current-time
 	$ curl http://kevin.cx:9000/jakarta-ee9-webapp/redirect "redirection"
 	$ curl http://kevin.cx:9000/jakarta-ee9-webapp/dispatcher
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp/login.html
 ```
 
 # DEBUG REMOTELY TOMCAT

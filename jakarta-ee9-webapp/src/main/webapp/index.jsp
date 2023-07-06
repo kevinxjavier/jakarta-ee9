@@ -117,6 +117,8 @@
 			<a href="/jakarta-ee9-webapp/current-time">Current Time</a><br/>
 			<a href="/jakarta-ee9-webapp/redirection">Redirect</a><br/>
 			<a href="/jakarta-ee9-webapp/dispatcher">Dispatcher</a><br/>
+			<a href="/jakarta-ee9-webapp/login.html">Login</a><br/>
+			<a href="/jakarta-ee9-webapp/search.html">Search</a><br/>
 		</h6>
-    </body>
+	</body>
 </html>
