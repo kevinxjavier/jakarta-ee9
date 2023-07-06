@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/search")
-public class ProductSearch extends HttpServlet {
+public class ProductSearchServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -4765498327527890144L;
 
