@@ -52,6 +52,9 @@
     $ curl http://localhost:8080/manager
     
     $ curl http://localhost:8080/jakarta-ee9-webapp-cookies
+    $ curl http://localhost:8080/jakarta-ee9-webapp-cookies/login.html
+    $ curl http://localhost:8080/jakarta-ee9-webapp-cookies/logout
+    $ curl http://localhost:8080/jakarta-ee9-webapp-cookies/products.html
 ```
 
 # DEBUG REMOTELY TOMCAT
