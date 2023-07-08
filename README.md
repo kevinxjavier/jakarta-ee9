@@ -13,3 +13,7 @@
 * feature/08_webapp_form
 * feature/09_webapp_form_bootstrap
 * feature/10_webapp_form_bootstrap_headers
+
+## COOKIES (jakarta-ee9-webapp-cookies)
+
+* feature/11_webapp_cookies
