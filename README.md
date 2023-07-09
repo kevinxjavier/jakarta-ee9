@@ -17,3 +17,7 @@
 ## COOKIES (jakarta-ee9-webapp-cookies)
 
 * feature/11_webapp_cookies
+
+## SESSION  (jakarta-ee9-webapp-session)
+
+* feature/12_webapp_session
