@@ -2,15 +2,17 @@ package com.kevinpina.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.Optional;
+
+import com.kevinpina.service.LoginSessionService;
+import com.kevinpina.service.LoginSessionServiceImpl;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet({ "/login", "/login.html" })
 public class LoginServlet extends HttpServlet {
@@ -27,8 +29,8 @@ public class LoginServlet extends HttpServlet {
 
 		if (USERNAME.equals(username) && PASSWORD.equals(password)) {
 
-			Cookie usernameCookie = new Cookie("username", username);
-			resp.addCookie(usernameCookie);
+			HttpSession session = req.getSession();
+			session.setAttribute("username", username);
 
 			/*
 			resp.setContentType("text/html; charset=UTF-8;");
@@ -61,30 +63,25 @@ public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Cookie[] cookies = req.getCookies() != null ? req.getCookies() : new Cookie[0];
+				
+		LoginSessionService login = new LoginSessionServiceImpl();
+		
+		Optional<String> sessionOptional = login.getUsername(req);
 
-		Optional<Cookie> cookieOptional1 = Arrays.stream(cookies).filter(c -> "username".equals(c.getName())).findAny();
-		
-		Cookie cookieOptional2 = Arrays.stream(cookies).filter(c -> "username".equals(c.getName())).findAny().orElse(null);
-		
-		Optional<String> cookieOptional3 = Arrays.stream(cookies).filter(c -> "username".equals(c.getName())).map(c -> c.getValue()).findAny();
-		
-		Optional<String> cookieOptional4 = Arrays.stream(cookies).filter(c -> "username".equals(c.getName())).map(Cookie::getValue).findAny();
-
-		if (cookieOptional1.isPresent()) {
+		if (sessionOptional.isPresent()) {
 			try (PrintWriter out = resp.getWriter()) {
 				out.println("<!DOCTYPE html>");
 				out.println("<html>");
 				out.println("		<head>");
 				out.println("			<meta charset=\"UTF-8\" />");
-				out.println("			<title>Logged as &lt;" + cookieOptional4.get() +"&gt;</title>");
+				out.println("			<title>Logged as &lt;" + sessionOptional.get() +"&gt;</title>");
 				out.println("		</head>");
 				out.println("		<body>");
 				out.println("			<h1>Already Logged</h1>");
-				out.println("			<h3>User &lt;" + cookieOptional1.get().getValue() + "&gt; Logged.</h3>");
-				if (cookieOptional3.isPresent()) {
+				out.println("			<h3>User &lt;" + sessionOptional.get() + "&gt; Logged.</h3>");
+				if (sessionOptional.isPresent()) {
 					out.println("				<tr><th colspan=\'4\'  bgcolor=\'blue\'>"
-							+ "<p>User " + cookieOptional3.get() + ". <a href='" + req.getContextPath() + "/index.html'>Volver</a></p>"
+							+ "<p>User " + sessionOptional.get() + ". <a href='" + req.getContextPath() + "/index.html'>Volver</a></p>"
 							+ "<p><a href=" + req.getContextPath() + "\'/logout\"'>Logout</a></th></tr>");
 				}
 				out.println("		</body>");

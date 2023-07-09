@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-public interface LoginCookieService {
+public interface LoginSessionService {
 
 	Optional<String> getUsername(HttpServletRequest req);
 

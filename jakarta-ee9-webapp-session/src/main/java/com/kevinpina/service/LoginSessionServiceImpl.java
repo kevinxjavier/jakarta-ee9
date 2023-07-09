@@ -1,17 +1,20 @@
 package com.kevinpina.service;
 
-import java.util.Arrays;
 import java.util.Optional;
 
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
-public class LoginCookieServiceImpl implements LoginCookieService {
+public class LoginSessionServiceImpl implements LoginSessionService {
 
 	@Override
 	public Optional<String> getUsername(HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies() != null ? req.getCookies() : new Cookie[0];
-		return Arrays.stream(cookies).filter(c -> "username".equals(c.getName())).map(Cookie::getValue).findAny();
+		HttpSession session = req.getSession();
+
+		if (session.getAttribute("username") != null) {
+			return Optional.of((String) session.getAttribute("username"));
+		}
+		return Optional.empty();
 	}
 
 }

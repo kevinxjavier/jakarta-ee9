@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<h1>Iniciar Sesion</h1>
-		<form action="/jakarta-ee9-webapp-cookies/login" method="post">
+		<form action="/jakarta-ee9-webapp-session/login" method="post">
 			<div>
 				<label for="username">Username</label>
 				<div>

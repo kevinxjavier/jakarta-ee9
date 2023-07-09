@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 import com.kevinpina.model.Product;
-import com.kevinpina.service.LoginCookieService;
-import com.kevinpina.service.LoginCookieServiceImpl;
+import com.kevinpina.service.LoginSessionService;
+import com.kevinpina.service.LoginSessionServiceImpl;
 import com.kevinpina.service.ProductService;
 import com.kevinpina.service.ProductServiceImpl;
 
@@ -30,7 +30,7 @@ public class ProductServlet extends HttpServlet {
 		ProductService productService = new ProductServiceImpl();
 		List<Product> products = productService.list();
 
-		LoginCookieService login = new LoginCookieServiceImpl();
+		LoginSessionService login = new LoginSessionServiceImpl();
 		Optional<String> usernameOPtional = login.getUsername(req);
 
 		try (PrintWriter out = resp.getWriter()) {
