@@ -25,8 +25,8 @@ public class LogoutServlet extends HttpServlet {
 		
 		if (username.isPresent()) {
 			Cookie usernameCookie = new Cookie("username", "");
-			usernameCookie.setMaxAge(0);
-			resp.addCookie(usernameCookie);
+			usernameCookie.setMaxAge(0); // This will destroy all the cookies
+			resp.addCookie(usernameCookie); // This set the cookie username to value empty
 		}
 //		sendRedirect is a new Request"
 		resp.sendRedirect(req.getContextPath() + "/login.html");
