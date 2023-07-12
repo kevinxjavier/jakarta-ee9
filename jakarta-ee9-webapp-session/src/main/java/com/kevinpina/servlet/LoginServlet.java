@@ -82,7 +82,7 @@ public class LoginServlet extends HttpServlet {
 				if (sessionOptional.isPresent()) {
 					out.println("				<tr><th colspan=\'4\'  bgcolor=\'blue\'>"
 							+ "<p>User " + sessionOptional.get() + ". <a href='" + req.getContextPath() + "/index.html'>Volver</a></p>"
-							+ "<p><a href=" + req.getContextPath() + "\'/logout\"'>Logout</a></th></tr>");
+							+ "<p><a href=\"" + req.getContextPath() + "/logout\">Logout</a></th></tr>");
 				}
 				out.println("		</body>");
 				out.println("</html>");
