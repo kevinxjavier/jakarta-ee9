@@ -18,9 +18,12 @@
 
 * feature/11_webapp_cookies
 
-## SESSION  (jakarta-ee9-webapp-session)
+## SESSION (jakarta-ee9-webapp-session)
 
 * feature/12_webapp_session
 
-## SHOPPING CART  (jakarta-ee9-webapp-shooping-cart)
+## SHOPPING CART (jakarta-ee9-webapp-shopping-cart)
 * feature/13_webapp_shopping_cart
+
+## LISTENERS (jakarta-ee9-webapp-shopping-cart-listeners)
+* feature/14_webapp_shopping_cart_listeners
