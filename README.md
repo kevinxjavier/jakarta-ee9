@@ -22,5 +22,5 @@
 
 * feature/12_webapp_session
 
-## SHOPPING CART  (jakarta-ee9-webapp-shooping-cart)
+## SHOPPING CART  (jakarta-ee9-webapp-shopping-cart)
 * feature/13_webapp_shopping_cart
