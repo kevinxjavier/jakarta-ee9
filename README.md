@@ -25,5 +25,8 @@
 ## SHOPPING CART (jakarta-ee9-webapp-shopping-cart)
 * feature/13_webapp_shopping_cart
 
-## FILTERS (jakarta-ee9-webapp-shopping-cart-listeners)
+## LISTENERS (jakarta-ee9-webapp-shopping-cart-listeners)
 * feature/14_webapp_shopping_cart_listeners
+
+## FILTERS (jakarta-ee9-webapp-shopping-cart-filters)
+* feature/15_webapp_shopping_cart_filters
