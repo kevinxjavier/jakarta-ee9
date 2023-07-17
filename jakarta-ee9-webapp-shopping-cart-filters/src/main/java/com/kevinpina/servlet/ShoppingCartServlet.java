@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/add-cart")
+@WebServlet("/cart/add")
 public class ShoppingCartServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -2396706622130637756L;
@@ -40,7 +40,7 @@ public class ShoppingCartServlet extends HttpServlet {
 
 		}
 
-		resp.sendRedirect(req.getContextPath() + "/view-cart");
+		resp.sendRedirect(req.getContextPath() + "/cart/view");
 
 	}
 

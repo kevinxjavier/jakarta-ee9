@@ -42,7 +42,12 @@
 
 # CONFIGURE INTELLIJ IDEA 
 ```
-    Watch How To Run in Eclipse: "Run - IntelliJ.png"
+    Watch How To Run in IntelliJ: "Run - IntelliJ.png"
+```
+
+# Configure Project in Eclipse
+```
+	$ mvn eclipse:eclipse
 ```
 
 # RUN 
@@ -54,12 +59,12 @@
 ```
     $ curl http://localhost:8080/manager
     
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/login.html
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/logout
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/products.html
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/add-cart
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/view-cart "redirect to cart.jsp"
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/login.html
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/logout
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/products.html
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/cart/add
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/cart/view "redirect to cart.jsp"
 ```
 
 # DEBUG REMOTELY TOMCAT

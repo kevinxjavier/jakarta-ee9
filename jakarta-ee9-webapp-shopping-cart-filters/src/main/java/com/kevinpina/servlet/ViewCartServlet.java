@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/view-cart")
+@WebServlet("/cart/view")
 public class ViewCartServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -1463437349142477210L;

@@ -70,7 +70,7 @@ public class ProductServlet extends HttpServlet {
 				out.println("				<td>" + product.getName() + "</td>");
 				if (usernameOPtional.isPresent()) {
 					out.println("				<td>" + product.getPrice() + "</td>");
-					out.println("				<td><a href=\"" + req.getContextPath() + "/add-cart?id="
+					out.println("				<td><a href=\"" + req.getContextPath() + "/cart/add?id="
 							+ product.getId() + "\">Add</a></td>");
 				}
 				out.println("				<td>" + product.getType() + "</td>");
