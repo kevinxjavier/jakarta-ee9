@@ -34,32 +34,37 @@
 
 # CONFIGURE MAVEN to execute on console 
 ```
-    $ vi $MAVEN_HOME/conf/settings.xml
-        <pluginGroups>
-            <pluginGroup>org.apache.tomcat.maven</pluginGroup>
-        </pluginGroups>
+	$ vi $MAVEN_HOME/conf/settings.xml
+		<pluginGroups>
+			<pluginGroup>org.apache.tomcat.maven</pluginGroup>
+		</pluginGroups>
 ```
 
 # CONFIGURE INTELLIJ IDEA 
 ```
-    Watch How To Run in Eclipse: "Run - IntelliJ.png"
+	Watch How To Run in IntelliJ: "Run - IntelliJ.png"
+```
+
+# Configure Project in Eclipse
+```
+	$ mvn eclipse:eclipse
 ```
 
 # RUN 
 ```
-    $ mvn tomcat7:redeploy
+	$ mvn tomcat7:redeploy
 ```
 
 # DEPLOY
 ```
-    $ curl http://localhost:8080/manager
-    
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/login.html
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/logout
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/products.html
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/add-cart
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/view-cart "redirect to cart.jsp"
+	$ curl http://localhost:8080/manager
+
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/login.html
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/logout
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/products.html
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/add-cart
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-listeners/view-cart "redirect to cart.jsp"
 ```
 
 # DEBUG REMOTELY TOMCAT
@@ -68,14 +73,14 @@
 		$ su // log as root
 		$ vi $TOMCAT_HOME/bin/catalina.sh jpda start
 
-		   By default JPDA_ADDRESS is defined as "localhost:8000" in catalina.sh
-		   Change to a different port as need or localhost to 0.0.0.0 for remote debug
-		   
+			By default JPDA_ADDRESS is defined as "localhost:8000" in catalina.sh
+			Change to a different port as need or localhost to 0.0.0.0 for remote debug
+			
 			if [ -z "$JPDA_ADDRESS" ]; then
 				JPDA_ADDRESS="0.0.0.0:8000"
-		  	fi
-		  	
-	  	$ sh $TOMCAT_HOME/bin/catalina.sh jpda start
+			fi
+			
+		$ sh $TOMCAT_HOME/bin/catalina.sh jpda start
 
 	2.1) In IntelliJ 
 		Click Run > Edit Configurations
@@ -89,4 +94,3 @@
 	2.2) In Eclipse
 		Watch How To Configure in Eclipse: Debug - Eclipse.png
 ```
-
