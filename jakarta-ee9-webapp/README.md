@@ -12,10 +12,10 @@
 	// Change Port to 9000
 	$  vi $TOMCAT_HOME/conf/server.xml
 		<Connector port="9000" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443"
-               maxParameterCount="1000"
-               />
+			connectionTimeout="20000"
+			redirectPort="8443"
+			maxParameterCount="1000"
+			/>
 
 	// Access out of localhost
 	$ vi $TOMCAT_HOME/webapps/manager/META-INF/context.xml
@@ -33,28 +33,33 @@
 
 # CONFIGURE MAVEN to execute on console 
 ```
-    $ vi $MAVEN_HOME/conf/settings.xml
-        <pluginGroups>
-            <pluginGroup>org.apache.tomcat.maven</pluginGroup>
-        </pluginGroups>
+	$ vi $MAVEN_HOME/conf/settings.xml
+		<pluginGroups>
+			<pluginGroup>org.apache.tomcat.maven</pluginGroup>
+		</pluginGroups>
 ```
 
 # CONFIGURE INTELLIJ IDEA 
 ```
-    Watch How To Run in Eclipse: "Run - IntelliJ.png"
+	Watch How To Run in IntelliJ: "Run - IntelliJ.png"
+```
+
+# Configure Project in Eclipse
+```
+	$ mvn eclipse:eclipse
 ```
 
 # RUN 
 ```
-    $ mvn tomcat7:redeploy
+	$ mvn tomcat7:redeploy
 ```
 
 # DEPLOY
 ```
-    $ curl http://localhost:8080/manager
-    
-    $ curl http://localhost:8080/webapp/
-    $ curl http://localhost:8080/webapp/info
+	$ curl http://localhost:8080/manager
+	
+	$ curl http://localhost:8080/webapp/
+	$ curl http://localhost:8080/webapp/info
 ```
 
 # DEBUG REMOTELY TOMCAT
@@ -63,14 +68,14 @@
 		$ su // log as root
 		$ vi $TOMCAT_HOME/bin/catalina.sh jpda start
 
-		   By default JPDA_ADDRESS is defined as "localhost:8000" in catalina.sh
-		   Change to a different port as need or localhost to 0.0.0.0 for remote debug
-		   
+		By default JPDA_ADDRESS is defined as "localhost:8000" in catalina.sh
+		Change to a different port as need or localhost to 0.0.0.0 for remote debug
+		
 			if [ -z "$JPDA_ADDRESS" ]; then
 				JPDA_ADDRESS="0.0.0.0:8000"
-		  	fi
-		  	
-	  	$ sh $TOMCAT_HOME/bin/catalina.sh jpda start
+			fi
+			
+		$ sh $TOMCAT_HOME/bin/catalina.sh jpda start
 
 	2.1) In IntelliJ 
 		Click Run > Edit Configurations
