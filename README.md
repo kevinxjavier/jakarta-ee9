@@ -30,3 +30,6 @@
 
 ## FILTERS (jakarta-ee9-webapp-shopping-cart-filters)
 * feature/15_webapp_shopping_cart_filters
+
+## DATABASE (jakarta-ee9-webapp-shopping-cart-filters-database)
+* feature/16_webapp_shopping_cart_filters_database
