@@ -26,6 +26,9 @@
 			
 	// To watch logs TOMCAT
 	$ tail -100f $TOMCAT_HOME/logs/catalina.out
+
+	// To watch logs TOMCAT Listeners
+	$ tail -100f $TOMCAT_HOME/localhost.2023-07-17.log
 ```
 
 # START/STOP TOMCAT
