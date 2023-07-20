@@ -79,12 +79,12 @@
 ```
     $ curl http://localhost:8080/manager
     
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/login.html
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/logout
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/products.html
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/cart/add
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/cart/view "redirect to cart.jsp"
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database/login.html
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database/logout
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database/products.html "redirect to list.jsp"
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database/cart/add
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database/cart/view "redirect to cart.jsp"
 ```
 
 # DEBUG REMOTELY TOMCAT

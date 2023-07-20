@@ -12,7 +12,7 @@ public class ItemCart {
 	private Integer quantity;
 	private Product product;
 
-	public float getAmount() {
+	public Double getAmount() {
 		return quantity * product.getPrice();
 	}
 

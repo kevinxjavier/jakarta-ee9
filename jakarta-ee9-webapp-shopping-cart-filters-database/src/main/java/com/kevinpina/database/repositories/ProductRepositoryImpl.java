@@ -57,7 +57,7 @@ public class ProductRepositoryImpl implements Repository<Product> {
 
 	private Product getProduct(ResultSet resultSet) throws SQLException {
 		return Product.builder().id(resultSet.getLong("id")).name(resultSet.getString("name"))
-				.price(resultSet.getFloat("price")).categoryName(resultSet.getString("category_name")).build();
+				.price(resultSet.getDouble("price")).categoryName(resultSet.getString("category_name")).build();
 	}
 
 	@Override
