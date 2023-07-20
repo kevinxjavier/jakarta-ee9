@@ -21,7 +21,7 @@
 			
 	// To watch logs TOMCAT
 	$ tail -100f $TOMCAT_HOME/logs/catalina.out
-
+	
 	// To watch logs TOMCAT Listeners
 	$ tail -100f $TOMCAT_HOME/localhost.2023-07-17.log
 ```
@@ -42,7 +42,12 @@
 
 # CONFIGURE INTELLIJ IDEA 
 ```
-    Watch How To Run in Eclipse: "Run - IntelliJ.png"
+    Watch How To Run in IntelliJ: "Run - IntelliJ.png"
+```
+
+# Configure Project in Eclipse
+```
+	$ mvn eclipse:eclipse
 ```
 
 # RUN 
@@ -54,10 +59,12 @@
 ```
     $ curl http://localhost:8080/manager
     
-    $ curl http://localhost:8080/jakarta-ee9-webapp-cookies
-    $ curl http://localhost:8080/jakarta-ee9-webapp-cookies/login.html
-    $ curl http://localhost:8080/jakarta-ee9-webapp-cookies/logout
-    $ curl http://localhost:8080/jakarta-ee9-webapp-cookies/products.html
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/login.html
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/logout
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/products.html
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/cart/add
+    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters/cart/view "redirect to cart.jsp"
 ```
 
 # DEBUG REMOTELY TOMCAT
@@ -87,3 +94,4 @@
 	2.2) In Eclipse
 		Watch How To Configure in Eclipse: Debug - Eclipse.png
 ```
+

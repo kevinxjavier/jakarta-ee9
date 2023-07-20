@@ -19,7 +19,7 @@
 		//with
 			allow=".*"
 			
-	// To watch logs TOMCAT Variables
+	// To watch logs TOMCAT
 	$ tail -100f $TOMCAT_HOME/logs/catalina.out
 	
 	// To watch logs TOMCAT Listeners
