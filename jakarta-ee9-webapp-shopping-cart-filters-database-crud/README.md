@@ -77,14 +77,17 @@
 
 # DEPLOY
 ```
-    $ curl http://localhost:8080/manager
-    
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/login.html
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/logout
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/products.html "redirect to list.jsp"
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/cart/add
-    $ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/cart/view "redirect to cart.jsp"
+	$ curl http://localhost:8080/manager
+	
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/login.html
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/logout
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/products.html "redirect to list.jsp"
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/cart/add
+$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/cart/view "redirect to cart.jsp"
+
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/form.jsp    "error first invoke /product/form the next link"
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/product/form
 ```
 
 # DEBUG REMOTELY TOMCAT

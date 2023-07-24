@@ -75,7 +75,7 @@ public class ProductRepositoryImpl implements Repository<Product> {
 				.price(resultSet.getDouble(PRICE.getField())).date(resultSet.getDate(DATE.getField()).toLocalDate())
 				.sku(resultSet.getString(SKU.getField()))
 				.category(Category.builder().id(resultSet.getLong(CATEGORY_ID.getField()))
-						.name(resultSet.getString(CATEGORY.getField() + NAME.getField())).build())
+						.name(resultSet.getString(CATEGORY.getField() + "_" + NAME.getField())).build())
 				.build();
 	}
 

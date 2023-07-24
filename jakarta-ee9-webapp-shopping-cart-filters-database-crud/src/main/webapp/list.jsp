@@ -17,6 +17,7 @@
 		
 		<% if (usernameOptional.isPresent()) { %>
 			<div> Hi Welcome <%=usernameOptional.get() %></div>
+			<a href="<%=request.getContextPath()%>/product/form">Create [+]</a>
 		<% } %>
 		
 		<table border="1" cellspacing="0" cellpadding="4">
@@ -28,6 +29,7 @@
 				<% if (usernameOptional.isPresent()) { %>
 					<th>Price</th>
 					<th>Add</th>
+					<th>Edit</th>
 				<% } %>
 				
 			</tr>
@@ -40,6 +42,7 @@
 				<% if (usernameOptional.isPresent()) { %>
 					<td><%= product.getPrice() %></td>
 					<td><a href="<%= request.getContextPath() %>/cart/add?id=<%= product.getId() %>">Add</a></td>
+					<td><a href="<%= request.getContextPath() %>/product/form?id=<%= product.getId() %>">Edit</a></td>
 				<% } %>
 
 			</tr>
