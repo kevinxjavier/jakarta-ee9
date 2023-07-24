@@ -2,7 +2,7 @@ package com.kevinpina.database.fields;
 
 public enum CategoryFieldSQL {
 
-	CATEGORY_ID("category_id"), CATEGORY_NAME("category_name");
+	CATEGORY("category"), ID("id"), NAME("name");
 
 	private String field;
 

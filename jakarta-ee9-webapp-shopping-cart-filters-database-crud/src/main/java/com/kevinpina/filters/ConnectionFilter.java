@@ -28,23 +28,28 @@ public class ConnectionFilter implements Filter {
 				connection.setAutoCommit(false);
 			}
 
-			try {
-				request.setAttribute("connection", connection);
-				chain.doFilter(request, response);
-				connection.commit();
-			} catch (SQLException | ServiceDatabaseException e) {
-				connection.rollback();
-
-				((HttpServletResponse) response).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-						"Kevin says! " + e.getMessage());
-
-				e.printStackTrace();
-			}
+			doFilter(request, response, chain, connection);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	private void doFilter(ServletRequest request, ServletResponse response, FilterChain chain, Connection connection)
+			throws IOException, ServletException, SQLException {
+		try {
+			request.setAttribute("connection", connection);
+			chain.doFilter(request, response);
+			connection.commit();
+		} catch (SQLException | ServiceDatabaseException e) {
+			connection.rollback();
+
+			((HttpServletResponse) response).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					"Kevin says! " + e.getMessage());
+
+			e.printStackTrace();
+		}
 	}
 
 }

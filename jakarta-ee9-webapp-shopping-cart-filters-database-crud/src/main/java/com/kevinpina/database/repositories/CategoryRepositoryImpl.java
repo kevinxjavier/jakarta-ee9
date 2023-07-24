@@ -1,5 +1,10 @@
 package com.kevinpina.database.repositories;
 
+import static com.kevinpina.database.fields.CategoryFieldSQL.ID;
+import static com.kevinpina.database.fields.CategoryFieldSQL.NAME;
+import static com.kevinpina.database.queries.CategoryQuerySQL.SELECT_ALL;
+import static com.kevinpina.database.queries.CategoryQuerySQL.SELECT_BY_ID;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +13,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.kevinpina.database.queries.CategoryQuerySQL.SELECT_ALL;
-import static com.kevinpina.database.queries.CategoryQuerySQL.SELECT_BY_ID;
 import com.kevinpina.model.Category;
 
 public class CategoryRepositoryImpl implements Repository<Category> {
@@ -22,7 +25,7 @@ public class CategoryRepositoryImpl implements Repository<Category> {
 
 	@Override
 	public List<Category> list() throws SQLException {
-		List<Category> categories = new ArrayList<Category>();
+		List<Category> categories = new ArrayList<>();
 
 		try (Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery(SELECT_ALL.getSql())) {
@@ -48,8 +51,8 @@ public class CategoryRepositoryImpl implements Repository<Category> {
 	}
 
 	private Category getCategory(ResultSet resultSet) throws SQLException {
-		Category category = Category.builder().id(resultSet.getLong("id")).name(resultSet.getString("name")).build();
-		return category;
+		return Category.builder().id(resultSet.getLong(ID.getField())).name(resultSet.getString(NAME.getField()))
+				.build();
 	}
 
 	@Override

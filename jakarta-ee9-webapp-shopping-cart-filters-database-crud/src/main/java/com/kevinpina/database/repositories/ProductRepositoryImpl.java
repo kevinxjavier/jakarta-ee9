@@ -1,11 +1,11 @@
 package com.kevinpina.database.repositories;
 
-import static com.kevinpina.database.fields.CategoryFieldSQL.CATEGORY_NAME;
+import static com.kevinpina.database.fields.CategoryFieldSQL.CATEGORY;
 import static com.kevinpina.database.fields.ProductFieldSQL.CATEGORY_ID;
 import static com.kevinpina.database.fields.ProductFieldSQL.DATE;
 import static com.kevinpina.database.fields.ProductFieldSQL.NAME;
 import static com.kevinpina.database.fields.ProductFieldSQL.PRICE;
-import static com.kevinpina.database.fields.ProductFieldSQL.PRODUCT_ID;
+import static com.kevinpina.database.fields.ProductFieldSQL.ID;
 import static com.kevinpina.database.fields.ProductFieldSQL.SKU;
 import static com.kevinpina.database.queries.ProductQuerySQL.DELETE;
 import static com.kevinpina.database.queries.ProductQuerySQL.INSERT;
@@ -71,11 +71,11 @@ public class ProductRepositoryImpl implements Repository<Product> {
 	}
 
 	private Product getProduct(ResultSet resultSet) throws SQLException {
-		return Product.builder().id(resultSet.getLong(PRODUCT_ID.getField())).name(resultSet.getString(NAME.getField()))
+		return Product.builder().id(resultSet.getLong(ID.getField())).name(resultSet.getString(NAME.getField()))
 				.price(resultSet.getDouble(PRICE.getField())).date(resultSet.getDate(DATE.getField()).toLocalDate())
 				.sku(resultSet.getString(SKU.getField()))
 				.category(Category.builder().id(resultSet.getLong(CATEGORY_ID.getField()))
-						.name(resultSet.getString(CATEGORY_NAME.getField())).build())
+						.name(resultSet.getString(CATEGORY.getField() + NAME.getField())).build())
 				.build();
 	}
 

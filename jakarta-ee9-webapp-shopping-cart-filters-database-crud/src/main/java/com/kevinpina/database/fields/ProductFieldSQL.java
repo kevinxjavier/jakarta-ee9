@@ -2,7 +2,7 @@ package com.kevinpina.database.fields;
 
 public enum ProductFieldSQL {
 
-	PRODUCT_ID("id"), NAME("name"), PRICE("price"), DATE("date"), SKU("sku"), CATEGORY_ID("category_id");
+	PRODUCT("product"), ID("id"), NAME("name"), PRICE("price"), DATE("date"), SKU("sku"), CATEGORY_ID("category_id");
 
 	private String field;
 
