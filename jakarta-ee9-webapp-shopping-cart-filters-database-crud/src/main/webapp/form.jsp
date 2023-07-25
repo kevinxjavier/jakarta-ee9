@@ -15,7 +15,10 @@ Optional<Product> product = (Optional<Product>) request.getAttribute("product");
 
 Map<String, String> errors = (Map<String, String>) request.getAttribute("errors");
 
-String date = product.isPresent() ? product.get().getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) : "";
+String date = product.isPresent()
+		? product.get().getDate() != null ? product.get().getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+		: ""
+		: "";
 %>
 <!DOCTYPE html>
 <html>

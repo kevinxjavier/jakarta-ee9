@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -27,23 +28,29 @@ public class ProductFormSevlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Connection connection = (Connection) req.getAttribute("connection");
-		Service<Category> serviceCategory = new CategoryServiceImpl(connection);
-		req.setAttribute("categories", serviceCategory.list());
 
+//		Retrieving Connection ConnectionFilter
+		Connection connection = (Connection) req.getAttribute("connection");
+
+//		Retrieving Category
+		getCategories(req, connection);
+
+//		Retrieving Product
 		Service<Product> serviceProduct = new ProductServiceImpl(connection);
 		Long id = (req.getParameter("id") != null) ? Long.valueOf(req.getParameter("id")) : 0L;
 		Optional<Product> product = Optional.empty();
 		if (id > 0L) {
 			product = serviceProduct.findById(id);
-			if (product.isEmpty()) {
-				product = Optional.ofNullable(new Product());
-			}
 		}
 		req.setAttribute("product", product);
 
 		getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
-//		req.getRequestDispatcher("/product.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/form.jsp").forward(req, resp);
+	}
+
+	private void getCategories(HttpServletRequest req, Connection connection) {
+		Service<Category> serviceCategory = new CategoryServiceImpl(connection);
+		req.setAttribute("categories", serviceCategory.list());
 	}
 
 	@Override
@@ -62,7 +69,13 @@ public class ProductFormSevlet extends HttpServlet {
 		}
 
 		String sku = req.getParameter("sku");
-		String dateString = req.getParameter("date");
+
+		LocalDate date;
+		try {
+			date = LocalDate.parse(req.getParameter("date"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		} catch (DateTimeParseException e) {
+			date = null;
+		}
 
 		Long categoryId;
 		try {
@@ -88,7 +101,7 @@ public class ProductFormSevlet extends HttpServlet {
 			errors.put("sku", "Sku is more than 10 characters!");
 		}
 
-		if (dateString == null || dateString.isBlank()) {
+		if (date == null) {
 			errors.put("date", "Date is required!");
 		}
 
@@ -96,21 +109,22 @@ public class ProductFormSevlet extends HttpServlet {
 			errors.put("category", "Category is required!");
 		}
 
+		Product product = Product.builder().name(name).sku(sku).price(price).date(date)
+				.category(Category.builder().id(categoryId).build()).build();
+
 		if (errors.isEmpty()) {
 
-			LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
 //			Saving Products
-			Product product = Product.builder().name(name).sku(sku).price(price).date(date)
-					.category(Category.builder().id(categoryId).build()).build();
-
 			serviceProduct.save(product);
 
 //			Important always use redirect to avoid "Refresh the Browser or F5" and save many times
 			resp.sendRedirect(req.getContextPath() + "/products");
 		} else {
 			req.setAttribute("errors", errors);
-			doGet(req, resp);
+			getCategories(req, connection);
+			req.setAttribute("product", Optional.of(product));
+//			getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
+			req.getRequestDispatcher("/form.jsp").forward(req, resp);
 		}
 
 	}
