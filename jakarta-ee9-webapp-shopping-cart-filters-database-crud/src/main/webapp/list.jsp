@@ -51,6 +51,6 @@
 		
 		<p><b>Message Application: </b><%= messageApplication %></p>
 		<p><b>Message Request: </b><%= messageRequest %></p>
-		<p><a href="<%=request.getContextPath()%>/products">Back</a></p>
+		<p><a href="<%=request.getContextPath()%>/index.html">Back</a></p>
 	</body>
 </html>

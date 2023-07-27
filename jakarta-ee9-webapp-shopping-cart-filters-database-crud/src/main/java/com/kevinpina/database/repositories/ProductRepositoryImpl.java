@@ -99,12 +99,15 @@ public class ProductRepositoryImpl implements Repository<Product> {
 			preparedStatement.setLong(4, product.getCategory().getId());
 
 			if (idIsNotNull) {
-				preparedStatement.setLong(0, 0);
+				preparedStatement.setLong(5, product.getId());
 			} else {
 				preparedStatement.setDate(5, Date.valueOf(product.getDate()));
 			}
 
 			int result = preparedStatement.executeUpdate();
+			if (result == 1) {
+				System.out.println(sql.substring(0, 6) + " Success. Product = [" + product + "]");
+			}
 		}
 
 	}
@@ -114,6 +117,9 @@ public class ProductRepositoryImpl implements Repository<Product> {
 		try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE.getSql())) {
 			preparedStatement.setLong(1, id);
 			int result = preparedStatement.executeUpdate();
+			if (result == 1) {
+				System.out.println("DELETE Success. Id = [" + id + "]");
+			}
 		}
 	}
 

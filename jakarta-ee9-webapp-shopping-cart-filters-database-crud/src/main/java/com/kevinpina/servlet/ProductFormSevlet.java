@@ -37,7 +37,12 @@ public class ProductFormSevlet extends HttpServlet {
 
 //		Retrieving Product
 		Service<Product> serviceProduct = new ProductServiceImpl(connection);
-		Long id = (req.getParameter("id") != null) ? Long.valueOf(req.getParameter("id")) : 0L;
+		Long id;
+		try {
+			id= Long.valueOf(req.getParameter("id"));	
+		} catch (NumberFormatException e) {
+			id = 0L;
+		}
 		Optional<Product> product = Optional.empty();
 		if (id > 0L) {
 			product = serviceProduct.findById(id);
@@ -59,6 +64,14 @@ public class ProductFormSevlet extends HttpServlet {
 		Service<Product> serviceProduct = new ProductServiceImpl(connection);
 
 //		Getting Paramaters
+
+		Long id;
+		try {
+			id= Long.valueOf(req.getParameter("id"));	
+		} catch (NumberFormatException e) {
+			id = 0L;
+		}
+
 		String name = req.getParameter("name");
 
 		Double price;
@@ -109,7 +122,7 @@ public class ProductFormSevlet extends HttpServlet {
 			errors.put("category", "Category is required!");
 		}
 
-		Product product = Product.builder().name(name).sku(sku).price(price).date(date)
+		Product product = Product.builder().id(id).name(name).sku(sku).price(price).date(date)
 				.category(Category.builder().id(categoryId).build()).build();
 
 		if (errors.isEmpty()) {

@@ -91,7 +91,7 @@ String date = product.isPresent()
 					for (Category category : categories) {
 					%>
 					<option value="<%=category.getId()%>"
-						<%=product.isPresent() ? (category.getId().equals(product.get().getId()) ? "selected" : "") : ""%>><%=category.getName()%></option>
+						<%=product.isPresent() ? (category.getId().equals(product.get().getCategory().getId()) ? "selected" : "") : ""%>><%=category.getName()%></option>
 					<%
 					}
 					%>
@@ -104,9 +104,13 @@ String date = product.isPresent()
 			%>
 		</div>
 
-		<input type="submit" value="Create">
+		<input type="hidden" name="id"
+			value="<%=product.isPresent() ? product.get().getId() : ""%>">
+
+		<input type="submit"
+			value="<%=product.isPresent() && product.get().getId() != null && product.get().getId() > 0L ? "Update" : "Create"%>">
 		<p>
-			<a href="<%=request.getContextPath()%>/index.html">Back</a>
+			<a href="<%=request.getContextPath()%>/products">Back</a>
 		</p>
 
 	</form>
