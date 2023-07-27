@@ -82,12 +82,14 @@
 	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud
 	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/login.html
 	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/logout
-	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/products.html "redirect to list.jsp"
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/products.html 		"redirect to list.jsp"
 	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/cart/add
-$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/cart/view "redirect to cart.jsp"
+$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/cart/view 				"redirect to cart.jsp"
 
-	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/form.jsp    "error first invoke /product/form the next link"
-	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/product/form
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/form.jsp    			"error first invoke /product/form the next link"
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/product/form			"Securized with LoginFilter"
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/product/form?id=1	"Securized with LoginFilter"
+	$ curl http://kevin.cx:9000/jakarta-ee9-webapp-shopping-cart-filters-database-crud/product/delete?id=1
 ```
 
 # DEBUG REMOTELY TOMCAT

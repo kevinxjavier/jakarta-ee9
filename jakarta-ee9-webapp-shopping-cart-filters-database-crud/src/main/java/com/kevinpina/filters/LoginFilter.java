@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 // Defining private pages
 //@WebFilter({ "/*" })
-@WebFilter({ "/cart/*" })
+@WebFilter({ "/cart/*" , "/product/*" })
 //@WebFilter(servletNames = "SingleServlet")					// Register a filter for a specific servlet
 //@WebFilter(servletNames = {"FirstServlet", "SecondServlet"})	// Register a filter for multiple servlets
 
