@@ -36,3 +36,6 @@
 
 ## DATABASE (jakarta-ee9-webapp-shopping-cart-filters-database-crud)
 * feature/17_webapp_shopping_cart_filters_database_crud
+
+## JSTL (jakarta-ee9-webapp-shopping-cart-filters-database-crud-jstl)
+* feature/18_webapp_shopping_cart_filters_database_crud_jstl
