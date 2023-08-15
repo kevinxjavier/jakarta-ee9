@@ -39,7 +39,7 @@ public class ProductFormSevlet extends HttpServlet {
 		Service<Product> serviceProduct = new ProductServiceImpl(connection);
 		Long id;
 		try {
-			id= Long.valueOf(req.getParameter("id"));	
+			id = Long.valueOf(req.getParameter("id"));
 		} catch (NumberFormatException e) {
 			id = 0L;
 		}
@@ -47,7 +47,7 @@ public class ProductFormSevlet extends HttpServlet {
 		if (id > 0L) {
 			product = serviceProduct.findById(id);
 		}
-		req.setAttribute("product", product);
+		req.setAttribute("product", product.isPresent() ? product.get() : null);
 
 		getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
 //		req.getRequestDispatcher("/form.jsp").forward(req, resp);
@@ -67,7 +67,7 @@ public class ProductFormSevlet extends HttpServlet {
 
 		Long id;
 		try {
-			id= Long.valueOf(req.getParameter("id"));	
+			id = Long.valueOf(req.getParameter("id"));
 		} catch (NumberFormatException e) {
 			id = 0L;
 		}
@@ -135,7 +135,7 @@ public class ProductFormSevlet extends HttpServlet {
 		} else {
 			req.setAttribute("errors", errors);
 			getCategories(req, connection);
-			req.setAttribute("product", Optional.of(product));
+			req.setAttribute("product", product);
 //			getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
 			req.getRequestDispatcher("/form.jsp").forward(req, resp);
 		}
