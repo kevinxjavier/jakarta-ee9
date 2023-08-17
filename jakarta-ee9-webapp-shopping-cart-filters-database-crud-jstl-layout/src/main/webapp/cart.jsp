@@ -36,6 +36,6 @@
 			</c:otherwise>
 		</c:choose>
 		<p><a href="${pageContext.request.contextPath}/products">Continue buying</a></p>
-		<p><a href="<%=request.getContextPath()%>/index.html">Back</a></p>
+		<p><a href="<%=request.getContextPath()%>/index.jsp">Back</a></p>
 
 <%@include file="layout/footer.jsp" %>

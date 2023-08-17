@@ -96,7 +96,7 @@
 		<b>sessionScope</b>
 	</p>
 	<p>
-		<a href="<%=request.getContextPath()%>/index.html">Back</a>
+		<a href="<%=request.getContextPath()%>/index.jsp">Back</a>
 	</p>
 
 <jsp:include page="layout/footer.jsp" />

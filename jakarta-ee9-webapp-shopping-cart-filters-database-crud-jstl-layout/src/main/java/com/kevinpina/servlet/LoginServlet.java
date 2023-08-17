@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet({ "/login", "/login.jsp" })
+@WebServlet({ "/login", "/login.html" })
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 4902515493740412080L;
@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 			
 			// We comment the above code because if not we can go back to the page and login again
 			// After redirect to /login.html we avoid go back to the page and login again "sendRedirect is a new Request"
-			resp.sendRedirect(req.getContextPath() + "/login.jsp");
+			resp.sendRedirect(req.getContextPath() + "/login.html");
 			
 		} else {
 //			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
@@ -81,7 +81,7 @@ public class LoginServlet extends HttpServlet {
 				out.println("			<h3>User &lt;" + sessionOptional.get() + "&gt; Logged.</h3>");
 				if (sessionOptional.isPresent()) {
 					out.println("				<tr><th colspan=\'4\'  bgcolor=\'blue\'>"
-							+ "<p>User " + sessionOptional.get() + ". <a href='" + req.getContextPath() + "/index.html'>Volver</a></p>"
+							+ "<p>User " + sessionOptional.get() + ". <a href='" + req.getContextPath() + "/index.jsp'>Volver</a></p>"
 							+ "<p><a href=\"" + req.getContextPath() + "/logout\">Logout</a></th></tr>");
 				}
 				out.println("		</body>");

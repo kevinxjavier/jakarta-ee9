@@ -20,7 +20,7 @@
 			<div>
 				<input type="submit" value="Login" />
 			</div>
-			<a href="<%=request.getContextPath()%>/index.html">Volver</a>
+			<a href="<%=request.getContextPath()%>/index.jsp">Volver</a>
 		</form>
 
 <%@include file="layout/footer.jsp" %>
