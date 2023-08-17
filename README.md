@@ -39,3 +39,6 @@
 
 ## JSTL (jakarta-ee9-webapp-shopping-cart-filters-database-crud-jstl)
 * feature/18_webapp_shopping_cart_filters_database_crud_jstl
+
+## Layout "Header - Footer" (jakarta-ee9-webapp-shopping-cart-filters-database-crud-jstl-layout)
+* feature/19_webapp_shopping_cart_filters_database_crud_jstl_layout
