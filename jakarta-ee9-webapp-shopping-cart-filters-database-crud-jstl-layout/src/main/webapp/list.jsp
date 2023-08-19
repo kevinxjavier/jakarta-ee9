@@ -30,7 +30,7 @@
 	// }
 	%>
 
-	<table border="1" cellspacing="0" cellpadding="4">
+	<table class="table">
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
@@ -70,7 +70,7 @@
 						href="<c:out value="${pageContext.request.contextPath}" />/product/form?id=<c:out value="${product.id}" />">Edit</a></td>
 					<td><a
 						href="<c:out value="${pageContext.request.contextPath}" />/product/delete?id=<c:out value="${product.id}" />"
-						onclick="return confirm('Are you sure to delete this product?');">Delte</a></td>
+						onclick="return confirm('Are you sure to delete this product?');">Delete</a></td>
 					<%-- <td><a --%>
 					<%--href="<%=request.getContextPath()%>/product/delete?id=<%=product.getId()"%> --%>
 					<%--onclick="return confirm('Are you sure to delete this product?');"">Delte</a></td> --%>

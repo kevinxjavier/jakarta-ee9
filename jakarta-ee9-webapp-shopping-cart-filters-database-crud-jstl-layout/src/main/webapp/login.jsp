@@ -5,20 +5,20 @@
 
 		<h1>Iniciar Sesion</h1>
 		<form action="/jakarta-ee9-webapp-shopping-cart-filters-database-crud-jstl-layout/login" method="post">
-			<div>
-				<label for="username">Username</label>
+			<div class="row my-2">
+				<label for="username" class="form-label">Username</label>
 				<div>
-					<input type="text" name="username" id="username" />
+					<input type="text" name="username" id="username" class="form-control" />
 				</div>
 			</div>
-			<div>
-				<label for="password">Password</label>
+			<div class="row my-2">
+				<label for="password" class="form-label">Password</label>
 				<div>
-					<input type="password" name="password" id="password" />
+					<input type="password" name="password" id="password"  class="form-control" />
 				</div>
 			</div>
-			<div>
-				<input type="submit" value="Login" />
+			<div class="row my-2">
+				<input type="submit" value="Login"  class="btn btn-primary" />
 			</div>
 			<a href="<%=request.getContextPath()%>/index.jsp">Volver</a>
 		</form>
