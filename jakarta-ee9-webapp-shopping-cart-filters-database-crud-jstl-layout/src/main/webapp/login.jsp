@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%-- Using Directive include: Will not show the changes made in Header in this File unless changes we change something in this File --%>
 <%@include file="layout/header.jsp" %>

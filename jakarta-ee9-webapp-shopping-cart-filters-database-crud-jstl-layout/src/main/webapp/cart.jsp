@@ -11,7 +11,7 @@
 				<p>We are sorry! there is no products in the shopping cart</p>
 			</c:when>
 			<c:otherwise>
-				<table border="1">
+				<table class="table">
 					<tr>
 						<th>Id</th>
 						<th>Name</th>
