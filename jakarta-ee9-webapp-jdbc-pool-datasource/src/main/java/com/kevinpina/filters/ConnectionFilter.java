@@ -48,7 +48,7 @@ public class ConnectionFilter implements Filter {
 			chain.doFilter(request, response);
 			connection.commit();
 
-		} catch (SQLException e) {
+		} catch (SQLException | ServiceDatabaseException e) {
 			connection.rollback();
 			throw e;
 		}
