@@ -42,3 +42,6 @@
 
 ## Layout "Header - Footer" (jakarta-ee9-webapp-shopping-cart-filters-database-crud-jstl-layout)
 * feature/19_webapp_shopping_cart_filters_database_crud_jstl_layout
+
+## DATABASE "Web - Datasource" (jakarta-ee9-webapp-jdbc-pool-datasource)
+* feature/20_webapp-jdbc-pool-datasource
