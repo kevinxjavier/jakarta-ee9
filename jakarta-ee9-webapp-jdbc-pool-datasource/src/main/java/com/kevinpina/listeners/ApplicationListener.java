@@ -13,8 +13,8 @@ import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
 
 /**
- * - ServletContextListener: General Context of the Application; Initialize Global
- * Resources Configuration, Database Common Connections.
+ * - ServletContextListener: General Context of the Application; Initialize
+ * Global Resources Configuration, Database Common Connections.
  * 
  * - ServletRequestListener: Request Configuration.
  * 
@@ -45,7 +45,7 @@ public class ApplicationListener implements ServletContextListener, ServletReque
 		sre.getServletContext().log("------ Initializing Request");
 
 //		We can use this Request Attribute in all the Servlets 
-		sre.getServletRequest().setAttribute("message", "Anonymous Request Message");		
+		sre.getServletRequest().setAttribute("message", "Anonymous Request Message");
 		sre.getServletContext().setAttribute("title", "Home");
 	}
 
@@ -60,6 +60,11 @@ public class ApplicationListener implements ServletContextListener, ServletReque
 //		 create a new Session empty after destroy the session.
 		servletContext.log("------ Initializing HTTP Session");
 
+//		// Option 1
+//		HttpSession session = se.getSession();
+//		session.setAttribute(ShoppingCartServlet.SHOPPING_CART, new ShoppingCart());
+
+//		// Option 2
 		se.getSession().setAttribute(ShoppingCartServlet.SHOPPING_CART, new ShoppingCart());
 	}
 
