@@ -2,6 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%-- Using Directive include: Will not show the changes made in Header in this File unless changes we change something in this File --%>
+<%-- 1. Using this JSP include will share the imports and all other variables inside the included variable --%>
 <%@include file="layout/header.jsp" %>
 
 		<h1>Iniciar Sesion</h1>

@@ -3,6 +3,7 @@
 
 <%-- Using Tag include: Will show the changes made in Header File in this file without changes in this file --%>
 <%-- Also the request.setAttribute in his Servlet won't work here after the redirect tp his jsp, better use then the Directive Include --%>
+<%-- 2. With this Tag include won't put all variables and imports inside the jsp page included --%>
 <jsp:include page="layout/header.jsp" />
 
 <%
