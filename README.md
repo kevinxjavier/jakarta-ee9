@@ -45,3 +45,6 @@
 
 ## DATABASE "Web - Datasource" (jakarta-ee9-webapp-jdbc-pool-datasource)
 * feature/20_webapp-jdbc-pool-datasource
+
+## WEB "CDI" (jakarta-ee9-webapp-cdi)
+* feature/21_webapp-cdi
