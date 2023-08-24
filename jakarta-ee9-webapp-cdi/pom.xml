@@ -46,11 +46,11 @@
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 			<version>${java-standard-tag-library.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet-core</artifactId>
-			<version>${weld-servlet.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.jboss.weld.servlet</groupId>-->
+<!--			<artifactId>weld-servlet-core</artifactId>-->
+<!--			<version>${weld-servlet.version}</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet-shaded</artifactId>
