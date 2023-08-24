@@ -17,7 +17,7 @@
 		<jackson.version>2.15.2</jackson.version>
 		<java-standard-tag-library-glassfish.version>3.0.1</java-standard-tag-library-glassfish.version>
 		<java-standard-tag-library.version>3.0.0</java-standard-tag-library.version>
-		<weld-servlet-core.version>5.1.1.SP2</weld-servlet-core.version>
+		<weld-servlet.version>5.1.1.SP2</weld-servlet.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -49,7 +49,12 @@
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet-core</artifactId>
-			<version>${weld-servlet-core.version}</version>
+			<version>${weld-servlet.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>${weld-servlet.version}</version>
 		</dependency>
 	</dependencies>
 	<build>

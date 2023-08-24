@@ -10,19 +10,22 @@ import com.kevinpina.model.ShoppingCart;
 import com.kevinpina.service.ProductServiceImpl;
 import com.kevinpina.service.Service;
 
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/cart/add")
 public class ShoppingCartServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -2396706622130637756L;
 
-	public static final String SHOPPING_CART = "shoppingCart";
+//	public static final String SHOPPING_CART = "shoppingCart";
+	
+	@Inject
+	private ShoppingCart shoppingCart;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,8 +38,8 @@ public class ShoppingCartServlet extends HttpServlet {
 		if (product.isPresent()) {
 			ItemCart itemCart = new ItemCart(1, product.get());
 
-			HttpSession session = req.getSession();
-			ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
+//			HttpSession session = req.getSession();
+//			ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute(SHOPPING_CART);
 
 			shoppingCart.addItemCar(itemCart);
 

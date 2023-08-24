@@ -3,18 +3,20 @@ package com.kevinpina.listeners;
 import com.kevinpina.model.ShoppingCart;
 import com.kevinpina.servlet.ShoppingCartServlet;
 
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.ServletRequestEvent;
 import jakarta.servlet.ServletRequestListener;
 import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
 
 /**
- * - ServletContextListener: General Context of the Application; Initialize Global
- * Resources Configuration, Database Common Connections.
+ * - ServletContextListener: General Context of the Application; Initialize
+ * Global Resources Configuration, Database Common Connections.
  * 
  * - ServletRequestListener: Request Configuration.
  * 
@@ -45,7 +47,7 @@ public class ApplicationListener implements ServletContextListener, ServletReque
 		sre.getServletContext().log("------ Initializing Request");
 
 //		We can use this Request Attribute in all the Servlets 
-		sre.getServletRequest().setAttribute("message", "Anonymous Request Message");		
+		sre.getServletRequest().setAttribute("message", "Anonymous Request Message");
 		sre.getServletContext().setAttribute("title", "Home");
 	}
 
@@ -60,7 +62,16 @@ public class ApplicationListener implements ServletContextListener, ServletReque
 //		 create a new Session empty after destroy the session.
 		servletContext.log("------ Initializing HTTP Session");
 
-		se.getSession().setAttribute(ShoppingCartServlet.SHOPPING_CART, new ShoppingCart());
+//		// Option 1
+//		HttpSession session = se.getSession();
+//		session.setAttribute(ShoppingCartServlet.SHOPPING_CART, new ShoppingCart());
+
+//		// Option 2
+//		se.getSession().setAttribute(ShoppingCartServlet.SHOPPING_CART, new ShoppingCart());
+
+//		// Option 3
+		// Now currently its been implemented in: com.kevinpina.model.ShoppingCart wich
+		// is @SessionScoped.
 	}
 
 	@Override

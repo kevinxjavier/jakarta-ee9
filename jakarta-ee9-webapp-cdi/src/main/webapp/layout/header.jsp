@@ -16,6 +16,13 @@
 		<title>${title}</title>
 	</head>
 	<body>
+	
+	<!-- shoppingCart es un elemento unico en los scopes así que podemos obviar sessionScope 
+		solo que ahora no es un atributo de la session sino que es un Bean CDI @SessionScope 
+		con nombre @Name("shoppingCart").
+		ver ramas: feature/12_webapp_session y feature/13_webapp_shopping_cart 	
+	-->
+	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  <div class="container-fluid">
 	    <a class="navbar-brand" href="#">Enterprise</a>
@@ -31,7 +38,8 @@
 	          <a class="nav-link" href="${pageContext.request.contextPath}/products">Products</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="${pageContext.request.contextPath}/cart/view">Cart (${sessionScope.shoppingCart.itemsCart.size()})</a>
+	          <a class="nav-link" href="${pageContext.request.contextPath}/cart/view">Cart (${shoppingCart.itemsCart.size()})</a>
+	          <%-- <a class="nav-link" href="${pageContext.request.contextPath}/cart/view">Cart (${sessionScope.shoppingCart.itemsCart.size()})</a> --%>
 	        </li>
 	        <li class="nav-item dropdown">
 	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

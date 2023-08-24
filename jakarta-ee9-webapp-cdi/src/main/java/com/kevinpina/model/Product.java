@@ -19,9 +19,10 @@ public class Product {
 	private Category category;
 	private String sku;
 	private LocalDate date;
-	
+
 	/**
 	 * Usage: Product p = Product.newProduct().name("kevin").id(1L).build();
+	 * 
 	 * @param id
 	 * @param name
 	 * @return Product
@@ -33,5 +34,5 @@ public class Product {
 		product.setName(name);
 		return product;
 	}
-	
+
 }
