@@ -59,6 +59,11 @@ public class ApplicationListener implements ServletContextListener, ServletReque
 //		 create a new Session empty after destroy the session.
 		servletContext.log("------ Initializing HTTP Session");
 
+//		// Option 1
+//		HttpSession session = se.getSession();
+//		session.setAttribute(ShoppingCartServlet.SHOPPING_CART, new ShoppingCart());
+
+//		// Option 2
 		se.getSession().setAttribute(ShoppingCartServlet.SHOPPING_CART, new ShoppingCart());
 	}
 
