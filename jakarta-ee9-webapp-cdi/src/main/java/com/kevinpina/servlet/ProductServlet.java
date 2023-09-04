@@ -12,6 +12,7 @@ import com.kevinpina.service.LoginSessionServiceImpl;
 import com.kevinpina.service.ProductServiceImpl;
 import com.kevinpina.service.Service;
 
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,14 +23,17 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ProductServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7757978577654827122L;
+	
+	@Inject
+	private Service<Product> productService;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		System.out.println("------------ Name: [" + req.getAttribute("name") + "]");
 
-		Connection connection = (Connection) req.getAttribute("connection");
-		Service<Product> productService = new ProductServiceImpl(connection);
+//		Connection connection = (Connection) req.getAttribute("connection");
+//		Service<Product> productService = new ProductServiceImpl(connection);
 		List<Product> products = productService.list();
 
 		LoginSessionService login = new LoginSessionServiceImpl();

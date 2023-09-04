@@ -10,10 +10,15 @@ import com.kevinpina.database.repositories.Repository;
 import com.kevinpina.exceptions.ServiceDatabaseException;
 import com.kevinpina.model.Category;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+
+@ApplicationScoped
 public class CategoryServiceImpl implements Service<Category> {
 
 	Repository<Category> repository;
 
+	@Inject
 	public CategoryServiceImpl(Connection connection) {
 		repository = new CategoryRepositoryImpl(connection);
 	}

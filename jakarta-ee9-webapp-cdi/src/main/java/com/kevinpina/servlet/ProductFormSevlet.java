@@ -15,6 +15,8 @@ import com.kevinpina.service.CategoryServiceImpl;
 import com.kevinpina.service.ProductServiceImpl;
 import com.kevinpina.service.Service;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -26,17 +28,27 @@ public class ProductFormSevlet extends HttpServlet {
 
 	private static final long serialVersionUID = 400264055384925024L;
 
+	@Inject
+	private Service<Product> serviceProduct;
+
+	@Inject
+	@Named("beanConnection")
+	private Connection connection;
+	
+	@Inject
+	private Service<Category> serviceCategory;
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 //		Retrieving Connection ConnectionFilter
-		Connection connection = (Connection) req.getAttribute("connection");
+//		Connection connection = (Connection) req.getAttribute("connection");
 
 //		Retrieving Category
 		getCategories(req, connection);
 
 //		Retrieving Product
-		Service<Product> serviceProduct = new ProductServiceImpl(connection);
+//		Service<Product> serviceProduct = new ProductServiceImpl(connection);
 		Long id;
 		try {
 			id = Long.valueOf(req.getParameter("id"));
@@ -55,14 +67,14 @@ public class ProductFormSevlet extends HttpServlet {
 	}
 
 	private void getCategories(HttpServletRequest req, Connection connection) {
-		Service<Category> serviceCategory = new CategoryServiceImpl(connection);
+//		Service<Category> serviceCategory = new CategoryServiceImpl(connection);
 		req.setAttribute("categories", serviceCategory.list());
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Connection connection = (Connection) req.getAttribute("connection");
-		Service<Product> serviceProduct = new ProductServiceImpl(connection);
+//		Connection connection = (Connection) req.getAttribute("connection");
+//		Service<Product> serviceProduct = new ProductServiceImpl(connection);
 
 //		Getting Paramaters
 

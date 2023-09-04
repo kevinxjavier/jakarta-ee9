@@ -1,22 +1,25 @@
 package com.kevinpina.service;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-import com.kevinpina.database.repositories.ProductRepositoryImpl;
 import com.kevinpina.database.repositories.Repository;
 import com.kevinpina.exceptions.ServiceDatabaseException;
 import com.kevinpina.model.Product;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+
+@ApplicationScoped
 public class ProductServiceImpl implements Service<Product> {
 
+	@Inject
 	private Repository<Product> repository;
-
-	public ProductServiceImpl(Connection connection) {
-		this.repository = new ProductRepositoryImpl(connection);
-	}
+//
+//	public ProductServiceImpl(Connection connection) {
+//		this.repository = new ProductRepositoryImpl(connection);
+//	}
 
 	@Override
 	public List<Product> list() {

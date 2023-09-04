@@ -15,13 +15,25 @@ import java.util.List;
 
 import com.kevinpina.model.Category;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+@ApplicationScoped
 public class CategoryRepositoryImpl implements Repository<Category> {
 
 	private Connection connection;
 
-	public CategoryRepositoryImpl(Connection connection) {
+	@Inject
+	public CategoryRepositoryImpl(@Named("beanConnection") Connection connection) {
 		this.connection = connection;
 	}
+
+//	private Connection connection;
+//
+//	public CategoryRepositoryImpl(Connection connection) {
+//		this.connection = connection;
+//	}
 
 	@Override
 	public List<Category> list() throws SQLException {

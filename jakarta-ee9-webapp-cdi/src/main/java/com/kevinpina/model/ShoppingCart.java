@@ -10,7 +10,7 @@ import jakarta.inject.Named;
 import lombok.Getter;
 
 @SessionScoped // Always must be a default Constructor in CDI. we use @Inject if there is a
-				// parametric Construtor and also implement Serializable.
+				// parametric Construtor. Also implement Serializable.
 @Named("shoppingCart") // In CDI by default the name is cammel case so it not necessary define this:
 						// @Named("shoppingCart").
 @Getter

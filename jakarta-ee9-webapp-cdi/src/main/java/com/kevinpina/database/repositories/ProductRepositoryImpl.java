@@ -25,17 +25,26 @@ import java.util.List;
 import com.kevinpina.model.Category;
 import com.kevinpina.model.Product;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+@ApplicationScoped
 public class ProductRepositoryImpl implements Repository<Product> {
 
+	@Inject
+	@Named("beanConnection")
 	private Connection connection;
-
-	public ProductRepositoryImpl(Connection connection) {
-		this.connection = connection;
-	}
+	
+//	private Connection connection;
+//
+//	public ProductRepositoryImpl(Connection connection) {
+//		this.connection = connection;
+//	}
 
 	@Override
 	public List<Product> list() throws SQLException {
-		List<Product> products = new ArrayList<Product>();
+		List<Product> products = new ArrayList<>();
 
 		final String SQL = SELECT_ALL.getSql();
 

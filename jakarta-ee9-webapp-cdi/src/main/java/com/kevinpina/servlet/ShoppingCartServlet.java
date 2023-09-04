@@ -26,13 +26,16 @@ public class ShoppingCartServlet extends HttpServlet {
 	
 	@Inject
 	private ShoppingCart shoppingCart;
+	
+	@Inject
+	private Service<Product> productService;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Long id = Long.parseLong(req.getParameter("id"));
 
-		Connection connection = (Connection) req.getAttribute("connection");
-		Service<Product> productService = new ProductServiceImpl(connection);
+//		Connection connection = (Connection) req.getAttribute("connection");
+//		Service<Product> productService = new ProductServiceImpl(connection);
 		Optional<Product> product = productService.findById(id);
 
 		if (product.isPresent()) {

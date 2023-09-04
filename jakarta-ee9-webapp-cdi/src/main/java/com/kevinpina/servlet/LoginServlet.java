@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 
 	private static final String USERNAME = "login";
 	private static final String PASSWORD = "pass";
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String username = req.getParameter("username");
