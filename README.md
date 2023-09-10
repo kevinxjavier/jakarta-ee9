@@ -51,9 +51,9 @@
 
 	- 7bf35cafe169b563ee36a7f26b177ea0ca5e6ed7 Configuring CDI
 	- 633e64785294f231774a566332dc41338a413b14 Configuring CDI simplifie
-	- <we need a empty commit to update this id> CDI Changing traditional set of an attribute to injection (Autowired) @Inject: 
+	- 36f2eb4d9e83a7bcc069b1eacb1b82231ede0ee6 CDI Changing traditional set of an attribute to injection (Autowired) @Inject: 
 		* CDI Bean @RequestScope in class ProducerResources.java injected in ConnectionFilter.java.
 		* CDI Bean @SessionScope in class ShoppingCart.java injected in ShoppingCartServlet.java.
 		* CDI Bean @ApplicationScoped in classes ProductRepositoryImpl.java and CategoryRepositoryImpl.java and injected in ProductFormSevlet.java. 
 		* CDI Bean @Alternative in class ProductServiceIJdbcmpl.java.
-
+	- <we need a empty commit to update this id> CDI Bean @Resource DataSource
