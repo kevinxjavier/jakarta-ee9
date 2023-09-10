@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import com.kevinpina.configs.MysqlConnectionPrincipal;
 import com.kevinpina.database.repositories.CategoryRepositoryImpl;
 import com.kevinpina.database.repositories.Repository;
 import com.kevinpina.exceptions.ServiceDatabaseException;
@@ -19,7 +20,7 @@ public class CategoryServiceImpl implements Service<Category> {
 	Repository<Category> repository;
 
 	@Inject
-	public CategoryServiceImpl(Connection connection) {
+	public CategoryServiceImpl(@MysqlConnectionPrincipal /* Or use @Named("beanConnection")*/ Connection connection) {
 		repository = new CategoryRepositoryImpl(connection);
 	}
 

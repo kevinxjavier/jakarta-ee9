@@ -3,6 +3,7 @@ package com.kevinpina.servlet;
 import java.io.IOException;
 import java.sql.Connection;
 
+import com.kevinpina.configs.ProductServicePrincipal;
 import com.kevinpina.model.Product;
 import com.kevinpina.service.ProductServiceImpl;
 import com.kevinpina.service.Service;
@@ -20,6 +21,9 @@ public class ProductDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 252301810791239445L;
 	
 	@Inject
+	@ProductServicePrincipal
+	// If we dont annotate with @ProductServicePrincipal will inject this class ProductServiceIJdbcmpl.java by default
+	// otherwise use @Name("beanProductServiceImpl")
 	private Service<Product> serviceProduct;
 
 	@Override

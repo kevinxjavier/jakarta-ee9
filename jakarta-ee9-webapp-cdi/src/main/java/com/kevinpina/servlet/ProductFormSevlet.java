@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import com.kevinpina.configs.MysqlConnectionPrincipal;
+import com.kevinpina.configs.ProductServicePrincipal;
 import com.kevinpina.model.Category;
 import com.kevinpina.model.Product;
 import com.kevinpina.service.CategoryServiceImpl;
@@ -29,10 +31,14 @@ public class ProductFormSevlet extends HttpServlet {
 	private static final long serialVersionUID = 400264055384925024L;
 
 	@Inject
+	@ProductServicePrincipal
+	// If we dont annotate with @ProductServicePrincipal will inject this class ProductServiceIJdbcmpl.java by default
+	// otherwise use @Name("beanProductServiceImpl")
 	private Service<Product> serviceProduct;
 
 	@Inject
-	@Named("beanConnection")
+//	@Named("beanConnection")
+	@MysqlConnectionPrincipal // Or use @Named("beanConnection")
 	private Connection connection;
 	
 	@Inject

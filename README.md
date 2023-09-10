@@ -56,4 +56,9 @@
 		* CDI Bean @SessionScope in class ShoppingCart.java injected in ShoppingCartServlet.java.
 		* CDI Bean @ApplicationScoped in classes ProductRepositoryImpl.java and CategoryRepositoryImpl.java and injected in ProductFormSevlet.java. 
 		* CDI Bean @Alternative in class ProductServiceIJdbcmpl.java.
-	- <we need a empty commit to update this id> CDI Bean @Resource DataSource
+	- d8f0b93c772be1030658a810cdf1b5edcf307fc1 CDI Bean @Resource DataSource
+	- <we need a empty commit to update this id> @Qualifier
+		* CDI Bean @Alternative deleted! instead we use now @Qualifier public @interface ProductServicePrincipal so we dont use @Name("") and
+	  	  if we dont @Inject with annotation @ProductServicePrincipal will inject this class ProductServiceIJdbcmpl.java by default because the class 
+	  	  ProductServiceImpl.java is annotated with @ProductServicePrincipal so the attributes that need it must use @Inject and @ProductServicePrincipal
+		* @Qualifier public @interface @MysqlConnectionPrincipal use it instead of @Named("beanConnection")

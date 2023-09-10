@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 
+import com.kevinpina.configs.ProductServicePrincipal;
 import com.kevinpina.model.Product;
 import com.kevinpina.service.LoginSessionService;
 import com.kevinpina.service.LoginSessionServiceImpl;
@@ -25,6 +26,9 @@ public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 7757978577654827122L;
 	
 	@Inject
+	@ProductServicePrincipal
+	// If we dont annotate with @ProductServicePrincipal will inject this class ProductServiceIJdbcmpl.java by default
+	// otherwise use @Name("beanProductServiceImpl")
 	private Service<Product> productService;
 
 	@Override

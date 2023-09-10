@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kevinpina.configs.MysqlConnectionPrincipal;
 import com.kevinpina.model.Category;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -25,7 +26,7 @@ public class CategoryRepositoryImpl implements Repository<Category> {
 	private Connection connection;
 
 	@Inject
-	public CategoryRepositoryImpl(@Named("beanConnection") Connection connection) {
+	public CategoryRepositoryImpl(@MysqlConnectionPrincipal /* Or use @Named("beanConnection")*/ Connection connection) {
 		this.connection = connection;
 	}
 

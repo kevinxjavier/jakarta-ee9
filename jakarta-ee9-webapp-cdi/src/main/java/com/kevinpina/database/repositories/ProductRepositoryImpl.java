@@ -22,6 +22,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kevinpina.configs.MysqlConnectionPrincipal;
 import com.kevinpina.model.Category;
 import com.kevinpina.model.Product;
 
@@ -33,7 +34,8 @@ import jakarta.inject.Named;
 public class ProductRepositoryImpl implements Repository<Product> {
 
 	@Inject
-	@Named("beanConnection")
+//	@Named("beanConnection")
+	@MysqlConnectionPrincipal // Or use @Named("beanConnection")
 	private Connection connection;
 	
 //	private Connection connection;

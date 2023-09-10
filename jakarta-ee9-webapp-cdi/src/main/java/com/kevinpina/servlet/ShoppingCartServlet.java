@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.Optional;
 
+import com.kevinpina.configs.ProductServicePrincipal;
 import com.kevinpina.model.ItemCart;
 import com.kevinpina.model.Product;
 import com.kevinpina.model.ShoppingCart;
@@ -28,6 +29,9 @@ public class ShoppingCartServlet extends HttpServlet {
 	private ShoppingCart shoppingCart;
 	
 	@Inject
+	@ProductServicePrincipal
+	// If we dont annotate with @ProductServicePrincipal will inject this class ProductServiceIJdbcmpl.java by default
+	// otherwise use @Name("beanProductServiceImpl")
 	private Service<Product> productService;
 
 	@Override

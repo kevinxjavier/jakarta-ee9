@@ -28,7 +28,7 @@ import jakarta.enterprise.inject.Alternative;
  *        without annotions will be CDI and Depandant by default.
  */
 
-@Alternative
+//@Alternative
 public class ProductServiceIJdbcmpl implements Service<Product> {
 
 	private static final String NOT_NEEDED = "Not needed!";

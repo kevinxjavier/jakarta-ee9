@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.kevinpina.configs.MysqlConnectionPrincipal;
 import com.kevinpina.exceptions.ServiceDatabaseException;
 
 import jakarta.inject.Inject;
@@ -20,7 +21,8 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ConnectionFilter implements Filter {
 
 	@Inject
-	@Named("beanConnection")
+//	@Named("beanConnection")
+	@MysqlConnectionPrincipal // Or use @Named("beanConnection")
 	private Connection connection;
 
 	@Override

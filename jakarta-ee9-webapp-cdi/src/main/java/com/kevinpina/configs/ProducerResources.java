@@ -20,8 +20,9 @@ public class ProducerResources {
 
 	@Produces
 	@RequestScoped
-	@Named("beanConnection") // because auto discovery is all bean-discovery-mode="all" a class of type
+//	@Named("beanConnection") // because auto discovery is all bean-discovery-mode="all" a class of type
 							 // Connection.class could be also instantiated so give a name a qualified name.
+	@MysqlConnectionPrincipal // Or use @Named("beanConnection")
 	private Connection getConnection() throws NamingException, SQLException {
 //		Context initContext = new InitialContext();
 //		Context envContext = (Context) initContext.lookup("java:/comp/env");
