@@ -30,7 +30,8 @@ public class ConnectionFilter implements Filter {
 			throws IOException, ServletException {
 
 		// try (Connection connection = ConnectionDatabaseDataSource.getConnection()) {
-		try (Connection connection = this.connection) {
+//		try (Connection connection = this.connection) {	// Connection will be close with ProducerResources.close(); automatically. See catalina.out 
+		try {
 
 			if (connection.getAutoCommit()) {
 				connection.setAutoCommit(false);

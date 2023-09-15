@@ -57,8 +57,12 @@
 		* CDI Bean @ApplicationScoped in classes ProductRepositoryImpl.java and CategoryRepositoryImpl.java and injected in ProductFormSevlet.java. 
 		* CDI Bean @Alternative in class ProductServiceIJdbcmpl.java.
 	- d8f0b93c772be1030658a810cdf1b5edcf307fc1 CDI Bean @Resource DataSource
-	- <we need a empty commit to update this id> @Qualifier
+	- 4fa64b42bb3b20136b9955a7b57d24399ba8beb0 @Qualifier
 		* CDI Bean @Alternative deleted! instead we use now @Qualifier public @interface ProductServicePrincipal so we dont use @Name("") and
 	  	  if we dont @Inject with annotation @ProductServicePrincipal will inject this class ProductServiceIJdbcmpl.java by default because the class 
 	  	  ProductServiceImpl.java is annotated with @ProductServicePrincipal so the attributes that need it must use @Inject and @ProductServicePrincipal
 		* @Qualifier public @interface @MysqlConnectionPrincipal use it instead of @Named("beanConnection")
+	- <we need a empty commit to update this id> @Stereotype, @Disposes And bean-discovery-mode to "annotated"
+		* @Stereotype interfaces annotations such as @Cart and @Repository are not only use for semantics like @Qualifier but also allows for define contexts suchs as @ApplicationScoped
+		* @Disposes in ProducerResources.java will close automatically the connection and not only works for databases will work for any Bean. See catalina.out
+		* bean-discovery-mode to "annotated" changed in WEB-INF/beans.xml: it means now that we have to annotate all the classes that we want it like Beans to be injected such as ProducerResources.java that would be annotated with @Dependent before was @Dependent by default because bean-discovery-mode washas the value "all", also we could annotate it with @ApplicationScoped and will works. Also becauase bean-discovery-mode is "annotated" classes annotated with @Alternative are not necessary to be annotated with @Alternative because classes not annotated with @xxxScopes or other contexts won't be injected like ProductServiceIJdbcmpl.java and this class beside won't be injected now by default with @Dependent so it is not a Bean so ProductServiceImpl.java no need to has @Named or @Qualifier.

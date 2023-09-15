@@ -14,13 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kevinpina.configs.MysqlConnectionPrincipal;
+import com.kevinpina.configs.Repositorio;
 import com.kevinpina.model.Category;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
-@ApplicationScoped
+@Repositorio
+//@ApplicationScoped
 public class CategoryRepositoryImpl implements Repository<Category> {
 
 	private Connection connection;

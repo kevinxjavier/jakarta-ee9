@@ -9,10 +9,13 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import jakarta.annotation.Resource;
+import jakarta.enterprise.context.Dependent;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.inject.Disposes;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Named;
 
+@Dependent
 public class ProducerResources {
 
 	@Resource(name = "jdbc/MySQLDB")
@@ -30,4 +33,10 @@ public class ProducerResources {
 		return ds.getConnection();
 	}
 
+	// @Disposes will close automatically the connection
+	// Not only works for databases will work for any Bean
+	public void close(@Disposes @MysqlConnectionPrincipal Connection connection) throws SQLException {
+		connection.close();
+		System.out.println("Closing connection automatically!");
+	}
 }

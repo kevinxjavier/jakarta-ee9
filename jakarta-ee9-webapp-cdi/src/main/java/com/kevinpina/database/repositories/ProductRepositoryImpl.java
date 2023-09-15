@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kevinpina.configs.MysqlConnectionPrincipal;
+import com.kevinpina.configs.Repositorio;
 import com.kevinpina.model.Category;
 import com.kevinpina.model.Product;
 
@@ -30,7 +31,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
-@ApplicationScoped
+@Repositorio
+//@ApplicationScoped
 public class ProductRepositoryImpl implements Repository<Product> {
 
 	@Inject
