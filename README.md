@@ -62,7 +62,8 @@
 	  	  if we dont @Inject with annotation @ProductServicePrincipal will inject this class ProductServiceIJdbcmpl.java by default because the class 
 	  	  ProductServiceImpl.java is annotated with @ProductServicePrincipal so the attributes that need it must use @Inject and @ProductServicePrincipal
 		* @Qualifier public @interface @MysqlConnectionPrincipal use it instead of @Named("beanConnection")
-	- <we need a empty commit to update this id> @Stereotype, @Disposes And bean-discovery-mode to "annotated"
+	- c57360aef0066998c92f5bf05d08971ec83fe7be @Stereotype, @Disposes And bean-discovery-mode to "annotated"
 		* @Stereotype interfaces annotations such as @Cart and @Repository are not only use for semantics like @Qualifier but also allows for define contexts suchs as @ApplicationScoped
 		* @Disposes in ProducerResources.java will close automatically the connection and not only works for databases will work for any Bean. See catalina.out
 		* bean-discovery-mode to "annotated" changed in WEB-INF/beans.xml: it means now that we have to annotate all the classes that we want it like Beans to be injected such as ProducerResources.java that would be annotated with @Dependent before was @Dependent by default because bean-discovery-mode washas the value "all", also we could annotate it with @ApplicationScoped and will works. Also becauase bean-discovery-mode is "annotated" classes annotated with @Alternative are not necessary to be annotated with @Alternative because classes not annotated with @xxxScopes or other contexts won't be injected like ProductServiceIJdbcmpl.java and this class beside won't be injected now by default with @Dependent so it is not a Bean so ProductServiceImpl.java no need to has @Named or @Qualifier.
+	- <we need a empty commit to update this id> @PostConstruct, @PreDestroy And java.util.logging.Logger

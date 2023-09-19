@@ -21,12 +21,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.kevinpina.configs.MysqlConnectionPrincipal;
 import com.kevinpina.configs.Repositorio;
 import com.kevinpina.model.Category;
 import com.kevinpina.model.Product;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -35,6 +38,9 @@ import jakarta.inject.Named;
 //@ApplicationScoped
 public class ProductRepositoryImpl implements Repository<Product> {
 
+	@Inject
+	private Logger log;
+	
 	@Inject
 //	@Named("beanConnection")
 	@MysqlConnectionPrincipal // Or use @Named("beanConnection")
@@ -45,6 +51,24 @@ public class ProductRepositoryImpl implements Repository<Product> {
 //	public ProductRepositoryImpl(Connection connection) {
 //		this.connection = connection;
 //	}
+
+	/**
+	 * For a Bean or Component it's recommended to use @PostConstruct instead of a Constructor unles we need to initialize 
+	 * the Bean or Component through a Constructor passing arguments to initiatlize some attributes 
+	 */
+	// Will execute once and when we call ProductRepositoryImpl.java because is @ApplicationScoped 
+	// If this were @RequestScope will call everytime we invoke this class
+	@PostConstruct
+	public void initialize() {
+		log.info("Initializing " + this.getClass().getName());
+	}
+
+	// Will execute everytime when we redeploy the app; because is @ApplicationScoped
+	// If this were @RequestScope will call everytime we invoke this class
+	@PreDestroy
+	public void destroy() {
+		log.info("Destroiyng " + this.getClass().getName());
+	}
 
 	@Override
 	public List<Product> list() throws SQLException {
