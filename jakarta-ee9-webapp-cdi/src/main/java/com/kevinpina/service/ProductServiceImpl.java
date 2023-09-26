@@ -5,14 +5,18 @@ import java.util.List;
 import java.util.Optional;
 
 import com.kevinpina.configs.ProductServicePrincipal;
+import com.kevinpina.configs.Servicio;
 import com.kevinpina.database.repositories.Repository;
 import com.kevinpina.exceptions.ServiceDatabaseException;
+import com.kevinpina.interceptors.Logging;
 import com.kevinpina.model.Product;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-@ApplicationScoped
+@Servicio
+//@Logging				// Move to @Servicio
+//@ApplicationScoped	// Move to @Servicio
 @ProductServicePrincipal // Or use @Name("beanProductServiceImpl") if exists another implementation like ProductServiceIJdbcmpl.java 
 						 // unless in this other class ProductServiceIJdbcmpl.java you annotated with @Alternative which will means that
 						 // this class ProductServiceImpl.java is by default

@@ -9,5 +9,9 @@
 		bean-discovery-mode="all" means not only annotated classes will be CDI also classes without annotions will be CDI and Depandant by default.
 	 -->
 
+	<interceptors>
+		<class>com.kevinpina.interceptors.LoggingInterceptor</class>
+	</interceptors>
+
 </beans>
         

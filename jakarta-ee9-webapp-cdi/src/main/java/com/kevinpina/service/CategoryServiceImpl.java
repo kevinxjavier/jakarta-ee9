@@ -9,6 +9,7 @@ import com.kevinpina.configs.MysqlConnectionPrincipal;
 import com.kevinpina.database.repositories.CategoryRepositoryImpl;
 import com.kevinpina.database.repositories.Repository;
 import com.kevinpina.exceptions.ServiceDatabaseException;
+import com.kevinpina.interceptors.Logging;
 import com.kevinpina.model.Category;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -24,6 +25,7 @@ public class CategoryServiceImpl implements Service<Category> {
 		repository = new CategoryRepositoryImpl(connection);
 	}
 
+	@Logging
 	@Override
 	public List<Category> list() {
 		try {
@@ -34,6 +36,7 @@ public class CategoryServiceImpl implements Service<Category> {
 		}
 	}
 
+	@Logging
 	@Override
 	public Optional<Category> findById(Long id) {
 		try {
