@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebFilter("/*") // Any route
 public class ConnectionFilter implements Filter {
-
+/*
 	@Inject
 //	@Named("beanConnection")
 	@MysqlConnectionPrincipal // Or use @Named("beanConnection")
@@ -59,6 +59,23 @@ public class ConnectionFilter implements Filter {
 			connection.rollback();
 			throw e;
 		}
+	}
+*/
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+
+		try {
+
+			// Repositories has an @Interceptor TransactionalInterceptor and may throw ServiceDatabaseException 
+			chain.doFilter(request, response);
+
+		} catch (ServiceDatabaseException e) {
+			e.printStackTrace();
+			((HttpServletResponse) response).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					"Kevin says! " + e.getMessage());
+		}
+
 	}
 
 }

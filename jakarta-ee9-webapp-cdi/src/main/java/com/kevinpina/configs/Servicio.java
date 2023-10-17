@@ -7,6 +7,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import com.kevinpina.interceptors.Logging;
+import com.kevinpina.interceptors.TransactionalJDBC;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Stereotype;
@@ -17,6 +18,7 @@ import jakarta.inject.Named;
  * annotated with this annotation.
  */
 
+@TransactionalJDBC
 @Logging
 @ApplicationScoped
 @Stereotype

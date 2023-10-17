@@ -67,5 +67,11 @@
 		* @Disposes in ProducerResources.java will close automatically the connection and not only works for databases will work for any Bean. See catalina.out
 		* bean-discovery-mode to "annotated" changed in WEB-INF/beans.xml: it means now that we have to annotate all the classes that we want it like Beans to be injected such as ProducerResources.java that would be annotated with @Dependent before was @Dependent by default because bean-discovery-mode washas the value "all", also we could annotate it with @ApplicationScoped and will works. Also becauase bean-discovery-mode is "annotated" classes annotated with @Alternative are not necessary to be annotated with @Alternative because classes not annotated with @xxxScopes or other contexts won't be injected like ProductServiceIJdbcmpl.java and this class beside won't be injected now by default with @Dependent so it is not a Bean so ProductServiceImpl.java no need to has @Named or @Qualifier.
 	- 35c67bdd663a1167d881e1fb38d188221ea83e5e @PostConstruct, @PreDestroy And java.util.logging.Logger
-	- <we need a empty commit to update this id> @InterceptorBinding, @Interceptor and @AroundInvoke
+	- 08a28033be6472fa5c802e36ec47e124cf78cd14 @InterceptorBinding, @Interceptor and @AroundInvoke
 		* Intercepts methods from a CDI component, see Logging.java LoggingInterceptor.java ProductServiceImpl.java CategoryServiceImpl.java and @Servicio
+	- <we need a empty commit to update this id> @InterceptorBinding, @Interceptor and @AroundInvoke
+		* Intercepts methods from a CDI component, TransactionalJDBC.java TransactionalInterceptor.java
+		* ConnectionFilter.java is modified
+		* Servicio.java has add @TransactionalJDBC.java
+		* ProductServiceImpl has @Servicio
+		* Add interceptors in WEB-INF/beans.xml

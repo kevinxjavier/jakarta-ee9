@@ -11,6 +11,7 @@
 
 	<interceptors>
 		<class>com.kevinpina.interceptors.LoggingInterceptor</class>
+		<class>com.kevinpina.interceptors.TransactionalInterceptor</class>
 	</interceptors>
 
 </beans>
