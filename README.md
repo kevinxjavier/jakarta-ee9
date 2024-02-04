@@ -69,9 +69,10 @@
 	- 35c67bdd663a1167d881e1fb38d188221ea83e5e @PostConstruct, @PreDestroy And java.util.logging.Logger
 	- 08a28033be6472fa5c802e36ec47e124cf78cd14 @InterceptorBinding, @Interceptor and @AroundInvoke
 		* Intercepts methods from a CDI component, see Logging.java LoggingInterceptor.java ProductServiceImpl.java CategoryServiceImpl.java and @Servicio
-	- <we need a empty commit to update this id> @InterceptorBinding, @Interceptor and @AroundInvoke
+	- @InterceptorBinding, @Interceptor and @AroundInvoke
 		* Intercepts methods from a CDI component, TransactionalJDBC.java TransactionalInterceptor.java
 		* ConnectionFilter.java is modified
 		* Servicio.java has add @TransactionalJDBC.java
 		* ProductServiceImpl has @Servicio
 		* Add interceptors in WEB-INF/beans.xml
+		* Updating pom.xml changing path of deployment
