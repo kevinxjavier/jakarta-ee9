@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Index</title>
+	</head>
+	<body>
+		<h3>User Form</h3>
+		<form action="/jakarta-ee9-webapp/register" method="post">
+			<div>
+				<label for="username">Username</label>
+				<div><input type="text" name="username" id="username" /></div>
+			</div>
+			<div>
+				<label for="password">Password</label>
+				<div><input type="password" name="password" id="password" /></div>
+			</div>
+			<div>
+				<label for="email">Email</label>
+				<div><input type="text" name="email" id="email" /></div>
+			</div>
+			<div>
+				<label for="country">Country</label>
+				<div>
+					<select name="country" id="country">
+						<option value="" selected>-- Select --</option>
+						<option value="au">Austria</option>
+						<option value="cl">Chile</option>
+						<option value="fr">France</option>
+						<option value="es">Spain</option>
+						<option value="us">USA</option>
+						<option value="ve">Venezuela</option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<label for="country_code">Country Code</label>
+				<div>
+					<select name="country_code" id="country_code" multiple>
+						<option value="+43" >Austria</option>
+						<option value="+56" selected>Chile</option>
+						<option value="+995">Georgia</option>
+						<option value="+34" selected>Spain</option>
+						<option value="+1">USA</option>
+					</select>
+				</div>
+			</div>
+			<div>
+				<label>Roles</label>
+				<div>
+					<input type="checkbox" name="roles" value="ROLE_ADMIN" />
+					<label>Administrator</label>
+				</div>
+				<div>
+					<input type="checkbox" name="roles" value="ROLE_USER" checked/>
+					<label>User</label>
+				</div>
+				<div>
+					<input type="checkbox" name="roles" value="ROLE_MODERATOR" />
+					<label>Moderator</label>
+				</div>
+			</div>
+			<div>
+				<label>Language</label>
+				<div>
+					<input type="radio" name="language" value="en" />
+					<label>English</label>
+				</div>
+				<div>
+					<input type="radio" name="language" value="de" />
+					<label>German</label>
+				</div>
+				<div>
+					<input type="radio" name="language" value="es"/>
+					<label>Spanish</label>
+				</div>
+			</div>
+			<div>
+				<input type="hidden" name="page" value="webapp" />
+				<div><input type="submit" value="Submit" /></div>
+			</div>
+		</form>
+		
+		<hr/>
+		<h6>
+			<a href="/jakarta-ee9-webapp/info?version=v0.1.0-alpha&name=webapp-SNAPSHOT">see info.</a><br/>
+			<h5>Headers</h5>
+			<a href="/jakarta-ee9-webapp/request-header">Request HTTP Headers</a><br/>
+			<a href="/jakarta-ee9-webapp/products.xls">Products (XLS)</a><br/>
+			<a href="/jakarta-ee9-webapp/products.html">Products (HTML)</a><br/>
+			<a href="/jakarta-ee9-webapp/products.json">Products (JSON)</a><br/>
+			<a href="/jakarta-ee9-webapp/current-time">Current Time</a><br/>
+			<a href="/jakarta-ee9-webapp/redirection">Redirect</a><br/>
+			<a href="/jakarta-ee9-webapp/dispatcher">Dispatcher</a><br/>
+			<a href="/jakarta-ee9-webapp/login.html">Login</a><br/>
+			<a href="/jakarta-ee9-webapp/search.html">Search</a><br/>
+		</h6>
+	</body>
+</html>
