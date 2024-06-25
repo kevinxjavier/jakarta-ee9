@@ -76,3 +76,12 @@
 		* ProductServiceImpl has @Servicio
 		* Add interceptors in WEB-INF/beans.xml
 		* Updating pom.xml changing path of deployment
+
+## WEB "CDI & JPA" (jakarta-ee9-webapp-cdi-jpa)
+* feature/22_webapp-cdi-jpa
+	- Adding 
+		pom.xml > "<artifactId>hibernate-core-jakarta</artifactId>"
+		$ mkdir src/main/resources
+		$ mkdir src/main/resources/META-INF
+		$ touch src/main/resources/META-INF/persistence.xml
+	
